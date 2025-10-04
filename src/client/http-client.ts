@@ -23,10 +23,7 @@ export class HttpClient {
     }
   }
 
-  async post<T>(
-    endpoint: string,
-    data?: Record<string, unknown>
-  ): Promise<T> {
+  async post<T>(endpoint: string, data?: unknown): Promise<T> {
     try {
       const response = await this.client.post<T>(endpoint, data);
       return response.data;
