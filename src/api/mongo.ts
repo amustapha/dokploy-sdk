@@ -12,6 +12,8 @@ import {
   SaveMongoEnvironmentRequest,
   ReloadMongoRequest,
   UpdateMongoRequest,
+  MoveMongoRequest,
+  RebuildMongoRequest,
 } from '../types/mongo';
 
 export class MongoApi {
@@ -61,5 +63,13 @@ export class MongoApi {
 
   async update(request: UpdateMongoRequest): Promise<void> {
     await this.client.post<void>('/mongo.update', request);
+  }
+
+  async move(request: MoveMongoRequest): Promise<void> {
+    await this.client.post<void>('/mongo.move', request);
+  }
+
+  async rebuild(request: RebuildMongoRequest): Promise<void> {
+    await this.client.post<void>('/mongo.rebuild', request);
   }
 }

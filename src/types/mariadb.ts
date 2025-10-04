@@ -76,3 +76,12 @@ export interface UpdateMariadbRequest {
   dockerImage?: string;
   [key: string]: unknown;
 }
+
+export interface MoveMariadbRequest {
+  mariadbId: string;
+  targetEnvironmentId: string;
+}
+
+export interface RebuildMariadbRequest {
+  mariadbId: string;
+}

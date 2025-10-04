@@ -76,3 +76,12 @@ export interface UpdateMongoRequest {
   dockerImage?: string;
   [key: string]: unknown;
 }
+
+export interface MoveMongoRequest {
+  mongoId: string;
+  targetEnvironmentId: string;
+}
+
+export interface RebuildMongoRequest {
+  mongoId: string;
+}

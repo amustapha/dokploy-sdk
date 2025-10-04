@@ -12,6 +12,8 @@ import {
   SaveRedisEnvironmentRequest,
   ReloadRedisRequest,
   UpdateRedisRequest,
+  MoveRedisRequest,
+  RebuildRedisRequest,
 } from '../types/redis';
 
 export class RedisApi {
@@ -61,5 +63,13 @@ export class RedisApi {
 
   async update(request: UpdateRedisRequest): Promise<void> {
     await this.client.post<void>('/redis.update', request);
+  }
+
+  async move(request: MoveRedisRequest): Promise<void> {
+    await this.client.post<void>('/redis.move', request);
+  }
+
+  async rebuild(request: RebuildRedisRequest): Promise<void> {
+    await this.client.post<void>('/redis.rebuild', request);
   }
 }

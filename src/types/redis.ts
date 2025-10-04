@@ -70,3 +70,12 @@ export interface UpdateRedisRequest {
   dockerImage?: string;
   [key: string]: unknown;
 }
+
+export interface MoveRedisRequest {
+  redisId: string;
+  targetEnvironmentId: string;
+}
+
+export interface RebuildRedisRequest {
+  redisId: string;
+}

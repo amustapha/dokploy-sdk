@@ -76,3 +76,12 @@ export interface UpdatePostgresRequest {
   dockerImage?: string;
   [key: string]: unknown;
 }
+
+export interface MovePostgresRequest {
+  postgresId: string;
+  targetEnvironmentId: string;
+}
+
+export interface RebuildPostgresRequest {
+  postgresId: string;
+}

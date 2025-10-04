@@ -12,6 +12,8 @@ import {
   SaveMariadbEnvironmentRequest,
   ReloadMariadbRequest,
   UpdateMariadbRequest,
+  MoveMariadbRequest,
+  RebuildMariadbRequest,
 } from '../types/mariadb';
 
 export class MariadbApi {
@@ -63,5 +65,13 @@ export class MariadbApi {
 
   async update(request: UpdateMariadbRequest): Promise<void> {
     await this.client.post<void>('/mariadb.update', request);
+  }
+
+  async move(request: MoveMariadbRequest): Promise<void> {
+    await this.client.post<void>('/mariadb.move', request);
+  }
+
+  async rebuild(request: RebuildMariadbRequest): Promise<void> {
+    await this.client.post<void>('/mariadb.rebuild', request);
   }
 }

@@ -12,6 +12,8 @@ import {
   SaveMySqlEnvironmentRequest,
   ReloadMySqlRequest,
   UpdateMySqlRequest,
+  MoveMySqlRequest,
+  RebuildMySqlRequest,
 } from '../types/mysql';
 
 export class MySqlApi {
@@ -61,5 +63,13 @@ export class MySqlApi {
 
   async update(request: UpdateMySqlRequest): Promise<void> {
     await this.client.post<void>('/mysql.update', request);
+  }
+
+  async move(request: MoveMySqlRequest): Promise<void> {
+    await this.client.post<void>('/mysql.move', request);
+  }
+
+  async rebuild(request: RebuildMySqlRequest): Promise<void> {
+    await this.client.post<void>('/mysql.rebuild', request);
   }
 }

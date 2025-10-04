@@ -76,3 +76,12 @@ export interface UpdateMySqlRequest {
   dockerImage?: string;
   [key: string]: unknown;
 }
+
+export interface MoveMySqlRequest {
+  mysqlId: string;
+  targetEnvironmentId: string;
+}
+
+export interface RebuildMySqlRequest {
+  mysqlId: string;
+}
