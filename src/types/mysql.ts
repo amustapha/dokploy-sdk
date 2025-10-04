@@ -20,10 +20,10 @@ export interface CreateMySqlRequest {
   databaseName: string;
   databaseUser: string;
   databasePassword: string;
-  projectId: string;
-  dockerImage?: string;
-  description?: string;
-  serverId?: string;
+  environmentId: string;
+  dockerImage?: string | null;
+  description?: string | null;
+  serverId?: string | null;
 }
 
 export interface GetMySqlRequest {

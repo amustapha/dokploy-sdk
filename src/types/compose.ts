@@ -13,11 +13,12 @@ export interface Compose {
 
 export interface CreateComposeRequest {
   name: string;
-  description?: string;
-  projectId: string;
-  composeType?: ComposeType;
-  appName?: string;
-  serverId?: string;
+  environmentId: string;
+  description?: string | null;
+  composeType?: ComposeType | null;
+  composeFile?: string | null;
+  appName?: string | null;
+  serverId?: string | null;
 }
 
 export interface GetComposeRequest {

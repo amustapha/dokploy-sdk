@@ -16,10 +16,10 @@ export interface CreateRedisRequest {
   name: string;
   appName: string;
   databasePassword: string;
-  projectId: string;
-  dockerImage?: string;
-  description?: string;
-  serverId?: string;
+  environmentId: string;
+  dockerImage?: string | null;
+  description?: string | null;
+  serverId?: string | null;
 }
 
 export interface GetRedisRequest {
