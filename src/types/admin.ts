@@ -38,5 +38,5 @@ export interface AssignPermissionsRequest {
 }
 
 export interface SetupMonitoringRequest {
-  metricsConfig?: unknown;
+  metricsConfig?: MetricsConfig;
 }

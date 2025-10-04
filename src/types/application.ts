@@ -1,3 +1,14 @@
+import {
+  SwarmHealthCheck,
+  SwarmRestartPolicy,
+  SwarmPlacement,
+  SwarmUpdateConfig,
+  SwarmRollbackConfig,
+  SwarmMode,
+  SwarmLabels,
+  SwarmNetwork,
+} from './swarm';
+
 export interface Application {
   applicationId: string;
   name: string;
@@ -123,14 +134,14 @@ export interface UpdateApplicationRequest {
   dockerContextPath?: string | null;
   dockerBuildStage?: string | null;
   dropBuildPath?: string | null;
-  healthCheckSwarm?: unknown | null;
-  restartPolicySwarm?: unknown | null;
-  placementSwarm?: unknown | null;
-  updateConfigSwarm?: unknown | null;
-  rollbackConfigSwarm?: unknown | null;
-  modeSwarm?: unknown | null;
-  labelsSwarm?: unknown | null;
-  networkSwarm?: unknown[] | null;
+  healthCheckSwarm?: SwarmHealthCheck | null;
+  restartPolicySwarm?: SwarmRestartPolicy | null;
+  placementSwarm?: SwarmPlacement | null;
+  updateConfigSwarm?: SwarmUpdateConfig | null;
+  rollbackConfigSwarm?: SwarmRollbackConfig | null;
+  modeSwarm?: SwarmMode | null;
+  labelsSwarm?: SwarmLabels | null;
+  networkSwarm?: SwarmNetwork[] | null;
   replicas?: number;
   applicationStatus?: ApplicationStatus;
   buildType?: BuildType;
