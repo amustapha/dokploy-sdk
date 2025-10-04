@@ -15,13 +15,28 @@ A fully-typed TypeScript SDK for the Dokploy API with built-in retry logic, conn
 ## Installation
 
 ```bash
-npm install dokploy-sdk
+npm install @htnl-dev/dokploy-sdk
+```
+
+### GitHub Packages
+
+To install from GitHub Packages, create an `.npmrc` file in your project:
+
+```
+@htnl-dev:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+Then install:
+
+```bash
+npm install @htnl-dev/dokploy-sdk
 ```
 
 ## Quick Start
 
 ```typescript
-import { DokploySDK } from 'dokploy-sdk';
+import { DokploySDK } from '@htnl-dev/dokploy-sdk';
 
 const sdk = new DokploySDK({
   baseUrl: 'https://your-dokploy-instance.com/api',
@@ -350,7 +365,7 @@ import type {
   PostgresDatabase,
   MonitoringData,
   SwarmHealthCheck,
-} from 'dokploy-sdk';
+} from '@htnl-dev/dokploy-sdk';
 ```
 
 ## API Reference
