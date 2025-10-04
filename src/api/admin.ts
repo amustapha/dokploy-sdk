@@ -7,6 +7,7 @@ import {
   RemoveUserResponse,
   GetUserByTokenRequest,
   User,
+  AssignPermissionsRequest,
 } from '../types/admin';
 
 export class AdminApi {
@@ -33,5 +34,9 @@ export class AdminApi {
     return this.client.get<User>('/admin.getUserByToken', {
       token: request.token,
     });
+  }
+
+  async assignPermissions(request: AssignPermissionsRequest): Promise<void> {
+    await this.client.post<void>('/admin.assignPermissions', request);
   }
 }

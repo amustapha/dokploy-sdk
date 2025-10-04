@@ -31,3 +31,8 @@ export interface User {
   authId: string;
   [key: string]: unknown;
 }
+
+export interface AssignPermissionsRequest {
+  userId: string;
+  permissions: string[];
+}

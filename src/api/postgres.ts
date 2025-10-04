@@ -11,6 +11,7 @@ import {
   RemovePostgresRequest,
   SavePostgresEnvironmentRequest,
   ReloadPostgresRequest,
+  UpdatePostgresRequest,
 } from '../types/postgres';
 
 export class PostgresApi {
@@ -56,5 +57,9 @@ export class PostgresApi {
 
   async reload(request: ReloadPostgresRequest): Promise<void> {
     await this.client.post<void>('/postgres.reload', request);
+  }
+
+  async update(request: UpdatePostgresRequest): Promise<void> {
+    await this.client.post<void>('/postgres.update', request);
   }
 }

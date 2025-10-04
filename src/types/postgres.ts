@@ -65,3 +65,14 @@ export interface ReloadPostgresRequest {
   postgresId: string;
   appName: string;
 }
+
+export interface UpdatePostgresRequest {
+  postgresId: string;
+  name?: string;
+  description?: string;
+  databaseName?: string;
+  databaseUser?: string;
+  databasePassword?: string;
+  dockerImage?: string;
+  [key: string]: unknown;
+}
