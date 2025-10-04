@@ -18,17 +18,58 @@ const sdk = new DokploySDK({
   token: 'your-api-token',
 });
 
-// Get admin information
-const admin = await sdk.admin.getAdmin();
+// Projects
+const project = await sdk.project.create({
+  name: 'My Project',
+  description: 'Project description',
+});
+const projects = await sdk.project.getAll();
 
-// Create user invitation
-await sdk.admin.createUserInvitation({ email: 'user@example.com' });
+// Applications
+const app = await sdk.application.create({
+  name: 'My App',
+  projectId: project.projectId,
+});
+await sdk.application.start({ applicationId: app.applicationId });
+await sdk.application.redeploy({ applicationId: app.applicationId });
 
-// Remove user
-await sdk.admin.removeUser({ authId: 'user-auth-id' });
+// Domains
+const domain = await sdk.domain.create({
+  host: 'example.com',
+  applicationId: app.applicationId,
+  https: true,
+  certificateType: 'letsencrypt',
+});
 
-// Get user by token
-const user = await sdk.admin.getUserByToken({ token: 'user-token' });
+// Docker
+const containers = await sdk.docker.getContainers();
+await sdk.docker.restartContainer({ containerId: 'container-id' });
+
+// Postgres
+const db = await sdk.postgres.create({
+  name: 'My Database',
+  appName: 'postgres-app',
+  databaseName: 'mydb',
+  databaseUser: 'user',
+  databasePassword: 'password',
+  projectId: project.projectId,
+});
+await sdk.postgres.deploy({ postgresId: db.postgresId });
+
+// Compose
+const compose = await sdk.compose.create({
+  name: 'My Compose',
+  projectId: project.projectId,
+  composeType: 'docker-compose',
+});
+await sdk.compose.deploy({ composeId: compose.composeId });
+
+// Auth
+await sdk.auth.login({
+  email: 'admin@example.com',
+  password: 'password',
+});
+const currentUser = await sdk.auth.get();
 ```
 
 ## Development
