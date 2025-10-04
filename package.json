@@ -20,7 +20,8 @@
     "url": "git+https://github.com/htnl-dev/dokploy-sdk.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
   },
   "keywords": [
     "dokploy",
