@@ -1,16 +1,36 @@
 import axios, { AxiosInstance, AxiosError, InternalAxiosRequestConfig, AxiosResponse } from 'axios';
+import http from 'http';
+import https from 'https';
 import { DokployConfig, ApiError } from '../types/common';
 
 export class HttpClient {
   private client: AxiosInstance;
 
   constructor(config: DokployConfig) {
+    // Create HTTP/HTTPS agents with connection pooling
+    const httpAgent = new http.Agent({
+      keepAlive: true,
+      maxSockets: 50,
+      maxFreeSockets: 10,
+      timeout: 60000,
+    });
+
+    const httpsAgent = new https.Agent({
+      keepAlive: true,
+      maxSockets: 50,
+      maxFreeSockets: 10,
+      timeout: 60000,
+    });
+
     this.client = axios.create({
       baseURL: config.baseUrl,
       headers: {
         'x-api-key': config.token,
         'Content-Type': 'application/json',
       },
+      httpAgent,
+      httpsAgent,
+      timeout: 30000, // 30 second timeout for requests
     });
 
     this.setupInterceptors();
