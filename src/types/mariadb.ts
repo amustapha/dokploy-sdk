@@ -1,4 +1,4 @@
-export type DatabaseStatus = 'idle' | 'running' | 'done' | 'error';
+import { DatabaseStatus } from './common';
 
 export interface MariadbDatabase {
   mariadbId: string;
@@ -38,7 +38,7 @@ export interface StopMariadbRequest {
   mariadbId: string;
 }
 
-export interface SaveExternalPortRequest {
+export interface SaveMariadbExternalPortRequest {
   mariadbId: string;
   externalPort: number | null;
 }

@@ -5,7 +5,7 @@ import {
   GetRedisRequest,
   StartRedisRequest,
   StopRedisRequest,
-  SaveExternalPortRequest,
+  SaveRedisExternalPortRequest,
   DeployRedisRequest,
   ChangeRedisStatusRequest,
   RemoveRedisRequest,
@@ -33,7 +33,9 @@ export class RedisApi {
     await this.client.post<void>('/redis.stop', request);
   }
 
-  async saveExternalPort(request: SaveExternalPortRequest): Promise<void> {
+  async saveExternalPort(
+    request: SaveRedisExternalPortRequest
+  ): Promise<void> {
     await this.client.post<void>('/redis.saveExternalPort', request);
   }
 

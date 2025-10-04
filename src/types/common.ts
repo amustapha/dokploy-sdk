@@ -11,3 +11,5 @@ export interface ApiError {
   message: string;
   statusCode?: number;
 }
+
+export type DatabaseStatus = 'idle' | 'running' | 'done' | 'error';

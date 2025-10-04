@@ -5,7 +5,7 @@ import {
   GetMySqlRequest,
   StartMySqlRequest,
   StopMySqlRequest,
-  SaveExternalPortRequest,
+  SaveMySqlExternalPortRequest,
   DeployMySqlRequest,
   ChangeMySqlStatusRequest,
   RemoveMySqlRequest,
@@ -33,7 +33,9 @@ export class MySqlApi {
     await this.client.post<void>('/mysql.stop', request);
   }
 
-  async saveExternalPort(request: SaveExternalPortRequest): Promise<void> {
+  async saveExternalPort(
+    request: SaveMySqlExternalPortRequest
+  ): Promise<void> {
     await this.client.post<void>('/mysql.saveExternalPort', request);
   }
 

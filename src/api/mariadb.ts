@@ -5,7 +5,7 @@ import {
   GetMariadbRequest,
   StartMariadbRequest,
   StopMariadbRequest,
-  SaveExternalPortRequest,
+  SaveMariadbExternalPortRequest,
   DeployMariadbRequest,
   ChangeMariadbStatusRequest,
   RemoveMariadbRequest,
@@ -33,7 +33,9 @@ export class MariadbApi {
     await this.client.post<void>('/mariadb.stop', request);
   }
 
-  async saveExternalPort(request: SaveExternalPortRequest): Promise<void> {
+  async saveExternalPort(
+    request: SaveMariadbExternalPortRequest
+  ): Promise<void> {
     await this.client.post<void>('/mariadb.saveExternalPort', request);
   }
 

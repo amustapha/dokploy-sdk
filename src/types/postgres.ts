@@ -1,4 +1,4 @@
-export type DatabaseStatus = 'idle' | 'running' | 'done' | 'error';
+import { DatabaseStatus } from './common';
 
 export interface PostgresDatabase {
   postgresId: string;

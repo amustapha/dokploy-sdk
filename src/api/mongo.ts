@@ -5,7 +5,7 @@ import {
   GetMongoRequest,
   StartMongoRequest,
   StopMongoRequest,
-  SaveExternalPortRequest,
+  SaveMongoExternalPortRequest,
   DeployMongoRequest,
   ChangeMongoStatusRequest,
   RemoveMongoRequest,
@@ -33,7 +33,9 @@ export class MongoApi {
     await this.client.post<void>('/mongo.stop', request);
   }
 
-  async saveExternalPort(request: SaveExternalPortRequest): Promise<void> {
+  async saveExternalPort(
+    request: SaveMongoExternalPortRequest
+  ): Promise<void> {
     await this.client.post<void>('/mongo.saveExternalPort', request);
   }
 

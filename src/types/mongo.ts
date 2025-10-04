@@ -1,4 +1,4 @@
-export type DatabaseStatus = 'idle' | 'running' | 'done' | 'error';
+import { DatabaseStatus } from './common';
 
 export interface MongoDatabase {
   mongoId: string;
@@ -38,7 +38,7 @@ export interface StopMongoRequest {
   mongoId: string;
 }
 
-export interface SaveExternalPortRequest {
+export interface SaveMongoExternalPortRequest {
   mongoId: string;
   externalPort: number | null;
 }

@@ -1,4 +1,4 @@
-export type DatabaseStatus = 'idle' | 'running' | 'done' | 'error';
+import { DatabaseStatus } from './common';
 
 export interface MySqlDatabase {
   mysqlId: string;
@@ -38,7 +38,7 @@ export interface StopMySqlRequest {
   mysqlId: string;
 }
 
-export interface SaveExternalPortRequest {
+export interface SaveMySqlExternalPortRequest {
   mysqlId: string;
   externalPort: number | null;
 }

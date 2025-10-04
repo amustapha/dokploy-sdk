@@ -1,4 +1,4 @@
-export type DatabaseStatus = 'idle' | 'running' | 'done' | 'error';
+import { DatabaseStatus } from './common';
 
 export interface RedisDatabase {
   redisId: string;
@@ -34,7 +34,7 @@ export interface StopRedisRequest {
   redisId: string;
 }
 
-export interface SaveExternalPortRequest {
+export interface SaveRedisExternalPortRequest {
   redisId: string;
   externalPort: number | null;
 }
