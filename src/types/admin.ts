@@ -36,3 +36,7 @@ export interface AssignPermissionsRequest {
   userId: string;
   permissions: string[];
 }
+
+export interface SetupMonitoringRequest {
+  metricsConfig?: unknown;
+}

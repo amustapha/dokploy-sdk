@@ -4,6 +4,8 @@ import {
   GetDeploymentsByApplicationRequest,
   GetDeploymentsByComposeRequest,
   GetDeploymentsByServerRequest,
+  GetDeploymentsByTypeRequest,
+  KillDeploymentProcessRequest,
 } from '../types/deployment';
 
 export class DeploymentApi {
@@ -25,5 +27,15 @@ export class DeploymentApi {
     request: GetDeploymentsByServerRequest
   ): Promise<Deployment[]> {
     return this.client.get<Deployment[]>('/deployment.allByServer', request);
+  }
+
+  async getAllByType(
+    request: GetDeploymentsByTypeRequest
+  ): Promise<Deployment[]> {
+    return this.client.get<Deployment[]>('/deployment.allByType', request);
+  }
+
+  async killProcess(request: KillDeploymentProcessRequest): Promise<void> {
+    await this.client.post<void>('/deployment.killProcess', request);
   }
 }

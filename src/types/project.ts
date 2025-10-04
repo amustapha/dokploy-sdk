@@ -23,3 +23,12 @@ export interface UpdateProjectRequest {
   name: string;
   description?: string;
 }
+
+export interface DuplicateProjectRequest {
+  sourceEnvironmentId: string;
+  name: string;
+  description?: string;
+  includeServices?: boolean;
+  selectedServices?: string[];
+  duplicateInSameProject?: boolean;
+}

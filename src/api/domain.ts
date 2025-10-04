@@ -8,6 +8,8 @@ import {
   UpdateDomainRequest,
   GetDomainRequest,
   DeleteDomainRequest,
+  CanGenerateTraefikMeDomainsRequest,
+  ValidateDomainRequest,
 } from '../types/domain';
 
 export class DomainApi {
@@ -41,5 +43,18 @@ export class DomainApi {
 
   async delete(request: DeleteDomainRequest): Promise<void> {
     await this.client.post<void>('/domain.delete', request);
+  }
+
+  async canGenerateTraefikMeDomains(
+    request: CanGenerateTraefikMeDomainsRequest
+  ): Promise<boolean> {
+    return this.client.get<boolean>(
+      '/domain.canGenerateTraefikMeDomains',
+      request
+    );
+  }
+
+  async validateDomain(request: ValidateDomainRequest): Promise<boolean> {
+    return this.client.post<boolean>('/domain.validateDomain', request);
   }
 }

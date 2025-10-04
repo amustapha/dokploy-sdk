@@ -6,6 +6,8 @@ import {
   GetContainerConfigRequest,
   GetContainersByAppNameRequest,
   GetContainersByLabelRequest,
+  GetServiceContainersByAppNameRequest,
+  GetStackContainersByAppNameRequest,
 } from '../types/docker';
 
 export class DockerApi {
@@ -39,6 +41,24 @@ export class DockerApi {
   ): Promise<DockerContainer[]> {
     return this.client.get<DockerContainer[]>(
       '/docker.getContainersByAppLabel',
+      request
+    );
+  }
+
+  async getServiceContainersByAppName(
+    request: GetServiceContainersByAppNameRequest
+  ): Promise<DockerContainer[]> {
+    return this.client.get<DockerContainer[]>(
+      '/docker.getServiceContainersByAppName',
+      request
+    );
+  }
+
+  async getStackContainersByAppName(
+    request: GetStackContainersByAppNameRequest
+  ): Promise<DockerContainer[]> {
+    return this.client.get<DockerContainer[]>(
+      '/docker.getStackContainersByAppName',
       request
     );
   }

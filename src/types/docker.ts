@@ -28,3 +28,13 @@ export interface GetContainersByLabelRequest {
   appName: string;
   serverId?: string;
 }
+
+export interface GetServiceContainersByAppNameRequest {
+  appName: string;
+  serverId?: string;
+}
+
+export interface GetStackContainersByAppNameRequest {
+  appName: string;
+  serverId?: string;
+}

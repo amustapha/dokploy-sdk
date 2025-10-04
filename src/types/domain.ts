@@ -48,3 +48,12 @@ export interface GetDomainRequest {
 export interface DeleteDomainRequest {
   domainId: string;
 }
+
+export interface CanGenerateTraefikMeDomainsRequest {
+  serverId: string;
+}
+
+export interface ValidateDomainRequest {
+  domain: string;
+  serverIp: string;
+}

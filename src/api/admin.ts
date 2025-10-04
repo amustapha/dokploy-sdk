@@ -8,6 +8,7 @@ import {
   GetUserByTokenRequest,
   User,
   AssignPermissionsRequest,
+  SetupMonitoringRequest,
 } from '../types/admin';
 
 export class AdminApi {
@@ -38,5 +39,9 @@ export class AdminApi {
 
   async assignPermissions(request: AssignPermissionsRequest): Promise<void> {
     await this.client.post<void>('/admin.assignPermissions', request);
+  }
+
+  async setupMonitoring(request: SetupMonitoringRequest): Promise<void> {
+    await this.client.post<void>('/admin.setupMonitoring', request);
   }
 }

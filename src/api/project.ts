@@ -5,6 +5,7 @@ import {
   GetProjectRequest,
   RemoveProjectRequest,
   UpdateProjectRequest,
+  DuplicateProjectRequest,
 } from '../types/project';
 
 export class ProjectApi {
@@ -28,5 +29,9 @@ export class ProjectApi {
 
   async update(request: UpdateProjectRequest): Promise<void> {
     await this.client.post<void>('/project.update', request);
+  }
+
+  async duplicate(request: DuplicateProjectRequest): Promise<Project> {
+    return this.client.post<Project>('/project.duplicate', request);
   }
 }

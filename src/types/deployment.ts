@@ -17,3 +17,12 @@ export interface GetDeploymentsByComposeRequest {
 export interface GetDeploymentsByServerRequest {
   serverId: string;
 }
+
+export interface GetDeploymentsByTypeRequest {
+  id: string;
+  type: string;
+}
+
+export interface KillDeploymentProcessRequest {
+  deploymentId: string;
+}
