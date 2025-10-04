@@ -29,7 +29,7 @@ export class DokploySDK {
   public mongo: MongoApi;
   public redis: RedisApi;
 
-  constructor(config: DokployConfig) {
+  constructor(config:  DokployConfig) {
     const httpClient = new HttpClient(config);
     this.admin = new AdminApi(httpClient);
     this.application = new ApplicationApi(httpClient);

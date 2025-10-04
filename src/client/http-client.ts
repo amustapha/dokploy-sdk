@@ -8,7 +8,7 @@ export class HttpClient {
     this.client = axios.create({
       baseURL: config.baseUrl,
       headers: {
-        Authorization: `Bearer ${config.token}`,
+        'x-api-key': config.token,
         'Content-Type': 'application/json',
       },
     });
