@@ -1,5 +1,5 @@
 {
-  "name": "dokploy-sdk",
+  "name": "@htnl-dev/dokploy-sdk",
   "version": "0.1.0",
   "description": "TypeScript SDK for Dokploy API",
   "main": "dist/index.js",
@@ -11,6 +11,13 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "jest",
     "test:local": "ts-node test.local.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htnl-dev/dokploy-sdk.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "dokploy",
