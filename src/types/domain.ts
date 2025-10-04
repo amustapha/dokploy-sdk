@@ -1,4 +1,4 @@
-export type CertificateType = 'letsencrypt' | 'none';
+export type CertificateType = 'letsencrypt' | 'none' | 'custom';
 export type DomainType = 'compose' | 'application';
 
 export interface Domain {
