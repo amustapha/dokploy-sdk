@@ -14,7 +14,7 @@ export class HttpClient {
     });
   }
 
-  async get<T>(endpoint: string, params?: Record<string, unknown>): Promise<T> {
+  async get<T>(endpoint: string, params?: unknown): Promise<T> {
     try {
       const response = await this.client.get<T>(endpoint, { params });
       return response.data;
