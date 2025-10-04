@@ -430,6 +430,26 @@ npm run format
 npm run typecheck
 ```
 
+### Releasing
+
+```bash
+# Patch release (0.1.0 -> 0.1.1)
+npm run release:patch
+
+# Minor release (0.1.0 -> 0.2.0)
+npm run release:minor
+
+# Major release (0.1.0 -> 1.0.0)
+npm run release:major
+```
+
+The release scripts will:
+1. Update the version in `package.json`
+2. Create a git commit with the version change
+3. Create a git tag (e.g., `v0.1.1`)
+4. Push the commit and tag to GitHub
+5. Trigger the GitHub Actions workflow to publish to GitHub Packages
+
 ### Project Structure
 
 ```
