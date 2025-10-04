@@ -28,6 +28,7 @@ import {
   RefreshTokenRequest,
   DisconnectGitProviderRequest,
 } from '../types/application';
+import { MonitoringData } from '../types/monitoring';
 
 export class ApplicationApi {
   constructor(private client: HttpClient) {}
@@ -116,8 +117,8 @@ export class ApplicationApi {
     await this.client.post<void>('/application.cleanQueues', request);
   }
 
-  async readAppMonitoring(request: ReadAppMonitoringRequest): Promise<unknown> {
-    return this.client.get<unknown>('/application.readAppMonitoring', request);
+  async readAppMonitoring(request: ReadAppMonitoringRequest): Promise<MonitoringData> {
+    return this.client.get<MonitoringData>('/application.readAppMonitoring', request);
   }
 
   async readTraefikConfig(request: ReadTraefikConfigRequest): Promise<string> {

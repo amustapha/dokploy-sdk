@@ -1,3 +1,5 @@
+import { MetricsConfig } from './monitoring';
+
 export interface Admin {
   id: string;
   email: string;
