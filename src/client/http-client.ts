@@ -3,6 +3,10 @@ import http from 'http';
 import https from 'https';
 import { DokployConfig, ApiError } from '../types/common';
 
+interface RetryableRequestConfig extends InternalAxiosRequestConfig {
+  retryCount?: number;
+}
+
 export class HttpClient {
   private client: AxiosInstance;
 
@@ -104,7 +108,8 @@ export class HttpClient {
    */
   private shouldRetry(config: InternalAxiosRequestConfig | undefined): boolean {
     if (!config) return false;
-    const retryCount = (config as any).retryCount || 0;
+    const retryableConfig = config as RetryableRequestConfig;
+    const retryCount = retryableConfig.retryCount || 0;
     return retryCount < 3;
   }
 
@@ -112,8 +117,9 @@ export class HttpClient {
    * Retry a failed request with exponential backoff
    */
   private async retryRequest(config: InternalAxiosRequestConfig): Promise<AxiosResponse> {
-    const retryCount = ((config as any).retryCount || 0) + 1;
-    (config as any).retryCount = retryCount;
+    const retryableConfig = config as RetryableRequestConfig;
+    const retryCount = (retryableConfig.retryCount || 0) + 1;
+    retryableConfig.retryCount = retryCount;
 
     // Exponential backoff: 1s, 2s, 4s
     const delay = Math.pow(2, retryCount - 1) * 1000;
